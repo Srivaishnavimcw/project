@@ -1,23 +1,21 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
+class OrderCreate(BaseModel):
+    product_name: str
+    quantity: int
 
-# -------- REQUEST SCHEMAS --------
-class UserCreate(BaseModel):
-    email: EmailStr
-    password: str
+class OrderUpdate(BaseModel):
+    product_name: str
+    quantity: int
 
+'''class OrderResponse(BaseModel):
+    id: int
+    product_name: str
+    quantity: int
+    user_email: str
 
-class UserLogin(BaseModel):
-    email: EmailStr
-    password: str
-
-
-# -------- RESPONSE SCHEMAS (optional but good practice) --------
-class TokenResponse(BaseModel):
-    access_token: str
-    refresh_token: str
-    token_type: str
-
+    class Config:
+        from_attributes = True'''
 
 
 
